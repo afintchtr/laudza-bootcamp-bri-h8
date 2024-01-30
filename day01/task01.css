@@ -1,0 +1,122 @@
+nav {
+  border-bottom: solid 1px gainsboro;
+}
+
+.nav-content {
+  max-width: 1080px;
+}
+
+.logo {
+  height: 36px;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: right;
+}
+
+.navbar-nav {
+  font-size: small;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+}
+
+.body-wrapper {
+  display: flex;
+  max-width: 1080px;
+}
+
+.body-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-wrapper {
+  margin-top: 24px;
+  width: 1080px;
+  background-color: white;
+  border-radius: 20px;
+  border: solid 1px gainsboro;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.head-content {
+  padding: 30px 50px;
+  display: flex;
+  column-gap: 40px;
+  justify-content: space-between;
+}
+
+.head-left {
+  width: 50%;
+  display: flex;
+}
+
+.head-left img {
+  clip-path: circle();
+}
+
+.avatar {
+  height: 140px;
+}
+
+.data-user {
+  margin-left: 30px;
+}
+
+.name-avatar {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.button-group {
+  margin-top: 25px;
+}
+
+.btn.btn-primary {
+  margin-right: 12px;
+}
+
+.head-right {
+  width: 40%;
+}
+
+.form-wrapper {
+  margin-top: 24px;
+  width: 1080px;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: solid 1px gainsboro;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.form-content {
+  padding: 30px 50px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+input {
+  font-size: 16px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  border: solid 1px gray;
+  border-radius: 8px;
+}
+
+.btn.btn-success {
+  margin-top: 10px;
+}
