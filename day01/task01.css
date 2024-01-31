@@ -89,6 +89,7 @@ body {
 }
 
 .form-wrapper {
+  display: none;
   margin-top: 24px;
   width: 1080px;
   background-color: white;

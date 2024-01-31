@@ -52,65 +52,103 @@
                   <img src="img/avatar.png" alt="" class="avatar" />
                 </span>
                 <span class="data-user">
-                  <h1 class="name-avatar">Lazarus Victorious</h1>
+                  <h1 class="name-avatar identity-value">Lazarus Victorious</h1>
                   <p>Front End Developer</p>
-                  <div class="button-group">
-                    <button type="button" class="btn btn-primary">
-                      Kontak
+                  <div class="d-flex button-group gap-3">
+                    <button
+                      type="button"
+                      class="btn btn-warning px-4"
+                      id="edit-form"
+                    >
+                      Edit
                     </button>
-                    <button type="button" class="btn btn-light">Resume</button>
+                    <button type="button" class="btn btn-primary">
+                      Resume
+                    </button>
                   </div>
                 </span>
               </div>
               <div class="head-right">
                 <span class="row">
                   <dt class="col">Availibility</dt>
-                  <dd class="col">Full Time</dd>
+                  <dd class="col identity-value">Full Time</dd>
                 </span>
                 <span class="row">
                   <dt class="col">Usia</dt>
-                  <dd class="col">17</dd>
+                  <dd class="col identity-value">17</dd>
                 </span>
                 <span class="row">
                   <dt class="col">Lokasi</dt>
-                  <dd class="col">Jakarta, Indonesia</dd>
+                  <dd class="col identity-value">Jakarta, Indonesia</dd>
                 </span>
                 <span class="row">
                   <dt class="col">Pengalaman</dt>
-                  <dd class="col">2</dd>
+                  <dd class="col identity-value">2</dd>
                 </span>
                 <span class="row">
                   <dt class="col">Email</dt>
-                  <dd class="col">developer@gmail.com</dd>
+                  <dd class="col identity-value">developer@gmail.com</dd>
                 </span>
               </div>
             </div>
           </section>
-          <section class="form-wrapper">
+          <section class="form-wrapper" id="form-wrapper">
             <div class="form-content">
-              <form>
+              <form id="identity-form">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="email" />
-                </div>
-                <div class="mb-3">
-                  <label for="name" class="form-label">Nama</label>
-                  <input type="text" class="form-control" id="name" />
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" required id="name" />
                 </div>
                 <div class="mb-3">
                   <label for="avaibility" class="form-label">Avaibility</label>
-                  <input type="text" class="form-control" id="avaibility" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    id="avaibility"
+                  />
                 </div>
                 <div class="mb-3">
-                  <label for="age" class="form-label">Age</label>
-                  <input type="text" class="form-control" id="age" />
+                  <label for="age" class="form-label">Usia</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    min="8"
+                    max="80"
+                    required
+                    id="age"
+                  />
                 </div>
                 <div class="mb-3">
-                  <label for="years" class="form-label">Years Experience</label>
-                  <input type="text" class="form-control" id="years" />
+                  <label for="location" class="form-label">Lokasi</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    id="location"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="years" class="form-label">Pengalaman</label>
+                  <input type="text" class="form-control" required id="years" />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    required
+                    id="email"
+                  />
                 </div>
                 <div class="d-grid">
-                  <button type="submit" class="btn btn-success">Submit</button>
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    id="submitButton"
+                  >
+                    Submit
+                  </button>
                 </div>
               </form>
             </div>
