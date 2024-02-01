@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 01</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid nav-content">
+        <a class="navbar-brand" href="#">
+          <div>
+            <img src="img/goravel_image.png" alt="" class="logo" />
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">HOME</a>
+            <a class="nav-link" href="#">PRODUCT</a>
+            <a class="nav-link" href="#">GALLERY</a>
+            <a class="nav-link" href="#">BLOG</a>
+            <a class="nav-link" href="#">MY INVENTORY</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="body">
+      <div class="body-wrapper">
+        <div class="body-content">
+          <section class="head-wrapper">
+            <div class="head-content">
+              <div class="head-left">
+                <span>
+                  <img src="img/avatar.png" alt="" class="avatar" />
+                </span>
+                <span class="data-user">
+                  <h1 class="name-avatar identity-value">Lazarus Victorious</h1>
+                  <p>Front End Developer</p>
+                  <div class="d-flex button-group gap-3">
+                    <button
+                      type="button"
+                      class="btn btn-warning px-4"
+                      id="edit-form"
+                    >
+                      Edit
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Resume
+                    </button>
+                  </div>
+                </span>
+              </div>
+              <div class="head-right">
+                <span class="row">
+                  <dt class="col">Availibility</dt>
+                  <dd class="col identity-value">Full Time</dd>
+                </span>
+                <span class="row">
+                  <dt class="col">Usia</dt>
+                  <dd class="col identity-value">17</dd>
+                </span>
+                <span class="row">
+                  <dt class="col">Lokasi</dt>
+                  <dd class="col identity-value">Jakarta, Indonesia</dd>
+                </span>
+                <span class="row">
+                  <dt class="col">Pengalaman</dt>
+                  <dd class="col identity-value">2</dd>
+                </span>
+                <span class="row">
+                  <dt class="col">Email</dt>
+                  <dd class="col identity-value">developer@gmail.com</dd>
+                </span>
+              </div>
+            </div>
+          </section>
+          <section class="form-wrapper" id="form-wrapper">
+            <div class="form-content">
+              <form id="identity-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" required id="name" />
+                </div>
+                <div class="mb-3">
+                  <label for="avaibility" class="form-label">Avaibility</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    id="avaibility"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="age" class="form-label">Usia</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    min="8"
+                    max="80"
+                    required
+                    id="age"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="location" class="form-label">Lokasi</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    id="location"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="years" class="form-label">Pengalaman</label>
+                  <input type="text" class="form-control" required id="years" />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    required
+                    id="email"
+                  />
+                </div>
+                <div class="d-grid">
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    id="submitButton"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="form.js"></script>
+  </body>
+</html>
