@@ -1,0 +1,157 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is what ive been practiced in Golang class Bootcamp BRI Golang",
+        "title": "Cars API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Afin Tachtiar",
+            "email": "afintchtr@gmail.com"
+        },
+        "license": {
+            "name": "AfinT",
+            "url": "https://github.com/afintchtr"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:3030",
+    "basePath": "/",
+    "paths": {
+        "/cars/": {
+            "get": {
+                "description": "Get details of all cars",
+                "consumes": [
+                    "application/json"
+                ],
+                "summary": "Get all cars details",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Car"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create one car with name and price",
+                "consumes": [
+                    "application/json"
+                ],
+                "summary": "Create a new car",
+                "parameters": [
+                    {
+                        "description": "create car",
+                        "name": "models.Car",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Car"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Car"
+                        }
+                    }
+                }
+            }
+        },
+        "/cars/{id}": {
+            "get": {
+                "description": "Get details of one car by its id",
+                "consumes": [
+                    "application/json"
+                ],
+                "summary": "Get car details",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID of the car to be shown",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Car"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Just delete an existing car",
+                "consumes": [
+                    "application/json"
+                ],
+                "summary": "Delete an existing car",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID of the car to be deleted",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Update an existing car with new name and price",
+                "consumes": [
+                    "application/json"
+                ],
+                "summary": "Update an existing car",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID of the car to be updated",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Car"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Car": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

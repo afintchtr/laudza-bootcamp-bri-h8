@@ -1,0 +1,104 @@
+basePath: /
+definitions:
+  models.Car:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+host: localhost:3030
+info:
+  contact:
+    email: afintchtr@gmail.com
+    name: Afin Tachtiar
+  description: This is what ive been practiced in Golang class Bootcamp BRI Golang
+  license:
+    name: AfinT
+    url: https://github.com/afintchtr
+  termsOfService: http://swagger.io/terms/
+  title: Cars API
+  version: "1.0"
+paths:
+  /cars/:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all cars
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Car'
+      summary: Get all cars details
+    post:
+      consumes:
+      - application/json
+      description: Create one car with name and price
+      parameters:
+      - description: create car
+        in: body
+        name: models.Car
+        required: true
+        schema:
+          $ref: '#/definitions/models.Car'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Car'
+      summary: Create a new car
+  /cars/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Just delete an existing car
+      parameters:
+      - description: ID of the car to be deleted
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+      summary: Delete an existing car
+    get:
+      consumes:
+      - application/json
+      description: Get details of one car by its id
+      parameters:
+      - description: ID of the car to be shown
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Car'
+      summary: Get car details
+    patch:
+      consumes:
+      - application/json
+      description: Update an existing car with new name and price
+      parameters:
+      - description: ID of the car to be updated
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Car'
+      summary: Update an existing car
+swagger: "2.0"
