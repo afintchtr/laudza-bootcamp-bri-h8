@@ -8,14 +8,16 @@ import (
 
 func StartServer() *gin.Engine {
 	r := gin.Default()
-
-	r.POST("/orders", controllers.CreateOrder)
-	r.GET("/orders", controllers.FetchAllOrderWithItems)
-	r.GET("/orders/:id", controllers.FetchOrderWithItemsById)
-	r.GET("/orders/items/", controllers.FetchAllItems)
-	r.GET("/orders/items/:id", controllers.FetchItemById)
-	r.PATCH("/orders/:id", controllers.UpdateOrderById)
-	r.DELETE("/orders/:id", controllers.DeleteOrderById)
+	
+	r.POST("/orders", controllers.StoreOrder)
+	r.GET("/orders", controllers.IndexOrder)
+	r.GET("/orders/:id", controllers.ShowOrder)
+	r.GET("/orders/items/", controllers.IndexItem)
+	r.GET("/orders/items/:id", controllers.ShowItem)
+	r.PATCH("/orders/:id", controllers.UpdateOrder)
+	r.PUT("/orders/items/:id", controllers.UpdateItem)	
+	r.DELETE("/orders/:id", controllers.DestroyOrder)
+	r.DELETE("/orders/items/:id", controllers.DestroyItem)
 
 	return r
 }

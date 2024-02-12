@@ -4,11 +4,12 @@ import (
 	"golang-days/day08-task/database"
 	"golang-days/day08-task/models"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
 
-func CreateOrder(c *gin.Context) {
+func StoreOrder(c *gin.Context) {
 	var currentOrder models.Order
 
 	c.ShouldBindJSON(&currentOrder)
@@ -28,7 +29,7 @@ func CreateOrder(c *gin.Context) {
 	})
 }
 
-func FetchAllOrderWithItems(c *gin.Context) {
+func IndexOrder(c *gin.Context) {
 	var orders []models.Order
 
 	db := database.GetDB()
@@ -46,7 +47,7 @@ func FetchAllOrderWithItems(c *gin.Context) {
 	})
 }
 
-func FetchOrderWithItemsById(c *gin.Context) {
+func ShowOrder(c *gin.Context) {
 	id := c.Param("id")
 	var order models.Order
 
@@ -65,51 +66,28 @@ func FetchOrderWithItemsById(c *gin.Context) {
 	})
 }
 
-func FetchAllItems(c *gin.Context) {
-	var items []models.Item
-
-	db := database.GetDB()
-	err := db.Find(&items).Error
-
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error_message": "Can't show any item",
-			"error_detail": err,
-		})
-		return
-	}
-	c.JSON(http.StatusOK, gin.H{
-			"items": items,
-	})
-}
-
-func FetchItemById(c *gin.Context) {
-	id := c.Param("id")
-	var item models.Item
-
-	db := database.GetDB()
-	err := db.First(&item, id).Error
-
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error_message": "Can't show this item",
-			"error_detail": err,
-		})
-		return
-	}
-	c.JSON(http.StatusOK, gin.H{
-			"item": item,
-	})
-}
-
-func UpdateOrderById(c *gin.Context) {
+func UpdateOrder(c *gin.Context) {
 	id := c.Param("id")
 
 	var updatedOrder models.Order
+
 	c.ShouldBindJSON(&updatedOrder)
 	
 	db := database.GetDB()
-	err := db.Model(&updatedOrder).Where("order_id", id).Updates(updatedOrder).Error
+
+	err := db.Where("order_id = ?", id).Delete(&models.Item{}).Error
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error_message": "Can't delete items before update order",
+			"error_detail": err,
+		})
+		return
+	}
+
+	temp, _ := strconv.Atoi(id)
+	updatedOrder.OrderID = uint(temp)
+
+	err = db.Model(&updatedOrder).Where("order_id", id).Updates(updatedOrder).Error
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -124,20 +102,30 @@ func UpdateOrderById(c *gin.Context) {
 	})
 }
 
-func DeleteOrderById(c *gin.Context) {
+func DestroyOrder(c *gin.Context) {
 	id := c.Param("id")
 
 	db := database.GetDB()
-	err := db.Delete(&models.Order{}, id).Error
 
-	if err != nil {
+	errOrder := db.Delete(&models.Order{}, id).Error
+	if errOrder != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error_message": "Can't delete item",
-			"error_detail": err,
+			"error_message": "Can't delete order",
+			"error_detail": errOrder,
 		})
 		return
 	}
+
+	errItem := db.Where("order_id = ?", id).Delete(&models.Item{}).Error
+	if errItem != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error_message": "Can't delete item",
+			"error_detail": errItem,
+		})
+		return
+	}
+
 	c.JSON(http.StatusOK, gin.H{
-			"message": "successfully delete order",
+			"message": "successfully delete order and its item",
 	})
 }
